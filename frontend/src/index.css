@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-bg text-ink antialiased;
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  .display {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    letter-spacing: 0.02em;
+  }
+  ::selection {
+    background: rgba(255, 71, 87, 0.35);
+  }
+  :focus-visible {
+    outline: 2px solid #ff4757;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-surface border border-line rounded-2xl p-5;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg font-mono text-sm font-semibold
+      px-4 py-2 border border-laser text-laser transition-colors duration-150
+      hover:bg-laser hover:text-white disabled:opacity-40 disabled:pointer-events-none;
+  }
+  .btn-solid {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg font-mono text-sm font-semibold
+      px-4 py-2 bg-laser text-white transition-colors duration-150 hover:bg-red-500
+      disabled:opacity-40 disabled:pointer-events-none;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg font-mono text-sm font-medium
+      px-3 py-1.5 text-muted border border-transparent hover:text-ink hover:border-line transition-colors;
+  }
+  .input {
+    @apply w-full rounded-lg bg-surface2 border border-line px-3 py-2 text-sm text-ink
+      placeholder:text-muted focus:border-laser focus:ring-1 focus:ring-laser outline-none transition-colors;
+  }
+  .label {
+    @apply block text-xs font-mono uppercase tracking-wider text-muted mb-1.5;
+  }
+  .tab-btn {
+    @apply px-3 py-2 text-sm font-mono border-b-2 border-transparent text-muted hover:text-ink transition-colors;
+  }
+  .tab-btn-active {
+    @apply text-laser border-laser;
+  }
+}
+
+/* barcode texture used behind the auth hero */
+.barcode-pattern {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(231, 236, 245, 0.9) 0px,
+    rgba(231, 236, 245, 0.9) 2px,
+    transparent 2px,
+    transparent 5px,
+    rgba(231, 236, 245, 0.9) 5px,
+    rgba(231, 236, 245, 0.9) 6px,
+    transparent 6px,
+    transparent 12px,
+    rgba(231, 236, 245, 0.9) 12px,
+    rgba(231, 236, 245, 0.9) 15px,
+    transparent 15px,
+    transparent 18px
+  );
+}
