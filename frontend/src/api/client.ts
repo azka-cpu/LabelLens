@@ -88,7 +88,7 @@ interface RequestOpts {
 
 async function request<T>(path: string, opts: RequestOpts = {}, _retried = false): Promise<T> {
   const { method = 'GET', json, form, params, auth = true } = opts
-  const url = new URL(`${BASE_URL}${path}`)
+  const url = new URL(`${BASE_URL}${path}` , window.location.origin)
   if (params) {
     Object.entries(params).forEach(([k, v]) => {
       if (v !== undefined && v !== '') url.searchParams.set(k, String(v))
