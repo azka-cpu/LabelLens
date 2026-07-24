@@ -10,7 +10,8 @@ import type {
   User,
 } from '../types'
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || ''
+const rawBase = import.meta.env.VITE_API_BASE_URL ?? ''
+const BASE_URL = rawBase.replace(/^['"]+|['"]+$/g, '').trim()
 
 const ACCESS_KEY = 'smartscan_access_token'
 const REFRESH_KEY = 'smartscan_refresh_token'
