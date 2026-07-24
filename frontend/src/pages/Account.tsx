@@ -33,7 +33,13 @@ function AuthView() {
     try {
       await login(email, password)
     } catch (err) {
-      setError(err instanceof api.ApiError ? err.detail : 'Login failed')
+      setError(
+  err instanceof api.ApiError
+    ? err.detail
+    : err instanceof Error
+    ? err.message
+    : 'Login failed'
+)
     } finally {
       setBusy(false)
     }
@@ -49,7 +55,13 @@ function AuthView() {
       setSuccess('Account created — you can log in now.')
       setTab('login')
     } catch (err) {
-      setError(err instanceof api.ApiError ? err.detail : 'Signup failed')
+      setError(
+  err instanceof api.ApiError
+    ? err.detail
+    : err instanceof Error
+    ? err.message
+    : 'Login failed'
+)
     } finally {
       setBusy(false)
     }
